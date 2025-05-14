@@ -2,12 +2,12 @@ import request from "@/utils/request";
 import { ApplicationResult } from "#/data";
 
 export interface LoginForm {
-  username: string;
+  userName: string;
   password: string;
 }
 
 export interface LoginData extends TokenData {
-  username: string;
+  userName: string;
   auths?: string[];
 }
 

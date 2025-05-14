@@ -12,8 +12,8 @@
       <div class="login-form-container">
         <p class="login-title">{{ APP_TITLE }}后台登录</p>
         <el-form :model="form" :rules="rules" ref="formRef" size="large">
-          <el-form-item prop="username">
-            <el-input v-model="form.username" placeholder="请输入登录账号">
+          <el-form-item prop="userName">
+            <el-input v-model="form.userName" placeholder="请输入登录账号">
               <template #prepend>
                 <el-icon>
                   <User />
@@ -68,11 +68,11 @@ const userStore = useUserStore();
 const routeCache = useRouteCache();
 const formRef = ref<FormInstance>();
 const form = reactive<LoginForm>({
-  username: "admin",
+  userName: "admin",
   password: "123qwe*",
 });
 const rules: FormRules<LoginForm> = {
-  username: [{ required: true, trigger: "blur", message: "账号不能为空" }],
+  userName: [{ required: true, trigger: "blur", message: "账号不能为空" }],
   password: [{ required: true, trigger: "blur", message: "密码不能为空" }],
 };
 const router = useRouter();
@@ -86,7 +86,7 @@ const login = () => {
         //初始化路由
         await routeCache.loadRoutes(true);
         Utils.getBrowserCode();
-        router.replace("/home");
+        await router.replace("/home");
       });
     }
   });

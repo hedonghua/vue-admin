@@ -19,13 +19,13 @@
             <div class="flex items-center">
               <img
                 v-if="userStore.info?.avatar"
-                :src="ossDomain + userStore.info?.avatar"
+                :src="userStore.info?.avatar"
                 alt="头像"
               />
               <img v-else :src="UserBoyAvatar" alt="头像" />
             </div>
             <div class="flex items-center ml-2">
-              {{ userStore.user?.username }}
+              {{ userStore.user?.userName }}
             </div>
           </div>
           <template #dropdown>
@@ -127,7 +127,6 @@ import { getSidebarMenus } from "@/api/system/menu";
 import { useThemeStore } from "@/store/themeStore";
 import ThemeSettingDrawer from "./themeSettingDrawer.vue";
 
-const ossDomain = import.meta.env.VITE_OSS_DOMAIN;
 const userStore = useUserStore();
 const tabManager = useTabManager();
 const themeStore = useThemeStore();

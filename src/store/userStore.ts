@@ -64,7 +64,7 @@ export interface UserState {
  * 用户鉴权信息
  */
 export interface UserAuthInfo {
-  username: string; //用户名
+  userName: string; //用户名
   accessToken: string; //访问token
   refreshToken: string; //刷新token
   expiredTime: Date; //过期时间

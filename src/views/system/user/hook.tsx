@@ -95,7 +95,7 @@ export function useTable() {
     {
       type: "text",
       label: "用户名",
-      key: "username",
+      key: "userName",
       placeholder: "请输入用户名",
     },
   ];
@@ -124,7 +124,6 @@ export function useTable() {
     roleIds: [],
   });
   const roleOptions = ref<Array<AppOption>>([]);
-  const ossDomain = import.meta.env.VITE_OSS_DOMAIN;
 
   /*========================== 自定义函数 ========================== */
   const remove = (row: any) => {
@@ -233,7 +232,7 @@ export function useTable() {
     });
   };
   const getAvatar = (url: string) => {
-    return ossDomain + url;
+    return url;
   };
   return {
     request,

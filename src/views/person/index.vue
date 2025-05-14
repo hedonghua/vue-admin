@@ -9,7 +9,7 @@
         :rules="rules"
       >
         <el-form-item label="用户名">
-          <p>{{ userStore.user?.username }}</p>
+          <p>{{ userStore.user?.userName }}</p>
         </el-form-item>
         <el-form-item label="头像" prop="avatar">
           <el-upload
@@ -86,7 +86,6 @@ import { useAuthorization } from "@/hooks/useAuthorization";
 
 const formRef = ref<FormInstance>();
 const uploadApiUrl = import.meta.env.VITE_UPLOAD_API;
-const ossDomain = import.meta.env.VITE_OSS_DOMAIN;
 const userStore = useUserStore();
 const fileList = ref<Array<any>>([]);
 const loading1 = ref<boolean>(false);
@@ -169,7 +168,7 @@ onMounted(() => {
     form.avatar = "/assets/img/boy.png";
   }
   if (form.avatar) {
-    fileList.value.push({ url: ossDomain + form.avatar });
+    fileList.value.push({ url: form.avatar });
   }
   form.sex = userStore.info?.sex?.toString() ?? "1";
   form.nickName = userStore.info?.nickName ?? "";

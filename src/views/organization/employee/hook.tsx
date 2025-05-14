@@ -169,7 +169,6 @@ export function useTable() {
   const filterText = ref<string>();
   const deptTreeRef = ref<InstanceType<typeof ElTree>>();
   const uploadApiUrl = import.meta.env.VITE_UPLOAD_API;
-  const ossDomain = import.meta.env.VITE_OSS_DOMAIN;
   const fileList1 = ref<Array<any>>([]);
   const fileList2 = ref<Array<any>>([]);
   const detailsDialogVisible = ref<boolean>(false);
@@ -205,10 +204,10 @@ export function useTable() {
     if (row && title.includes("编辑")) {
       assign(editForm, row);
       if (row.frontIdNoUrl) {
-        fileList1.value = [{ url: ossDomain + row.frontIdNoUrl }];
+        fileList1.value = [{ url: row.frontIdNoUrl }];
       }
       if (row.backIdNoUrl) {
-        fileList2.value = [{ url: ossDomain + row.backIdNoUrl }];
+        fileList2.value = [{ url: row.backIdNoUrl }];
       }
     }
     getOptions();

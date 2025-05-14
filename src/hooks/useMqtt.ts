@@ -41,7 +41,7 @@ export const useMqtt = () => {
         clientId,
         clean: true,
         connectTimeout: 4000,
-        username: token.value,
+        userName: token.value,
         reconnectPeriod: 1000,
       });
 

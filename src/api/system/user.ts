@@ -4,7 +4,7 @@ import { ApplicationResult, PagedResult } from "#/data";
 export interface UserItem {
   id: string;
   avatar: string;
-  username: string;
+  userName: string;
   sex: string;
 }
 
